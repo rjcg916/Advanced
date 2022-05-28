@@ -10,6 +10,7 @@
         <td>@p.Surname, @p.Firstname</td>
         <td>@p.Department?.Name</td>
         <td>@p.Location?.City, @p.Location?.State</td>
+        <td><NavLink class="btn btn-sm btn-info" href="@GetItemUrl(p.PersonId)">Edit</NavLink></td>
     </RowTemplate>
 </TableTemplate>
 
@@ -23,4 +24,6 @@
     public IEnumerable<Person>? People => Context?.People
             .Include(p => p.Department)
             .Include(p => p.Location);
+
+    public string GetItemUrl(long id) => $"/person/{id}";
 }
