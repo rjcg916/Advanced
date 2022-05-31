@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-// added for Blazor
 builder.Services.AddServerSideBlazor();
 
 builder.Services.AddDbContext<DataContext>(opts => {
@@ -13,9 +12,9 @@ builder.Services.AddDbContext<DataContext>(opts => {
     opts.EnableSensitiveDataLogging(true);
 });
 
-var app = builder.Build();
+builder.Services.AddSingleton<Advanced.Services.ToggleService>();
 
-//app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
 
 app.UseStaticFiles();
 
@@ -23,7 +22,6 @@ app.MapControllers();
 app.MapControllerRoute("controllers",
     "controllers/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-// added for Blazor
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

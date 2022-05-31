@@ -28,12 +28,22 @@
 - use of _Imports.razor for using
 - connection error display/handling
 - handle uncaught application errors
+- leveraging JavaScript interop
 ### components
 - factoring of code into components
 - group components into "feature folders" 
 - named and scoped event handlers and data bindings
 - use of template components
-- use cascading parameters to avoid cumbersome configuration passing
-
+- use cascading parameters to avoid cumbersome configuration passing (aka "prop drilling" in React)
+- appropriate use of lifecycle methods
+### forms
+- use OOB form components
+- create custom form components for re-use
+- appropriate validation
+### routing
+- appropriate use of routing
+- define common content using layouts in router
+### crud
+- decouple data access from components - QC pattern or repository
 
 
